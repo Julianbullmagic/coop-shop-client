@@ -77,8 +77,11 @@ export class SearchresultsComponent implements OnInit {
           var imagesarray=item.map(thing=>{
             thing.price=Number(thing.price)
             // thing.price=thing.price.toFixed(2)
-            let imagesarray=thing.images.split(',')
-            thing.images=imagesarray[0]
+            if(thing.images){
+              let imagesarray=thing.images.split(',')
+              thing.images=imagesarray[0]
+
+            }
             return thing
           })
           let pagesend=20*this.page

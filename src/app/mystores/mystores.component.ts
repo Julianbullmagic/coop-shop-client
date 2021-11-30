@@ -229,6 +229,7 @@ export class MystoresComponent implements OnInit {
               }
 
               this.uploading=false
+              this.isOpen=false
               this.editingStore=false
               }
 

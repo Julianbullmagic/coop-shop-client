@@ -2,7 +2,7 @@
   <h2>My Stores</h2>
   <button class="createlistingbtn" (click)="toggle()">Create Store?</button>
 
-  <div id="form" class="storeformcontainer" [@openClose]="isOpen ? 'closed' : 'open'">
+  <div id="form" class="storeformcontainer" [@openClose]="isOpen ? 'closed' : 'open'" [ngStyle]="{'height': uploading?'20vh':'auto'}">
   <h2 *ngIf="!uploading">Create Store</h2>
   <h2 *ngIf="uploading">Uploading...</h2>
 
@@ -65,8 +65,8 @@
       <img class="viewerimage" src="{{store.image||store.icon}}"/>
       <div class="btnbox">
       <button class="crudbtnone" *ngIf="!store.deleting" (click)="deleteStore($event,store.storeid)">Delete?</button>
-      <button class="crudbtnthree" *ngIf="store.deleting" (click)="areYouSure($event,store.storeid)">Are You Sure?</button>
       <button class="crudbtnthree" *ngIf="store.deleting" (click)="dontDelete($event,store.storeid)">Don't delete</button>
+      <button class="crudbtnthree" *ngIf="store.deleting" (click)="areYouSure($event,store.storeid)">Are You Sure?</button>
       <button class="crudbtntwo" (click)="editStore(store)">Edit?</button>
 
       <a class="viewstore" routerLink="/userstorepage/{{store.storeid}}" routerLinkActive="active">

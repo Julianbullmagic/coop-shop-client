@@ -13,9 +13,12 @@ body {
   font-family: poppins;
 }
 
+
+
 .container {
   position: relative;
   top:10vh;
+  left:20vw;
   width: 60vw;
   height: auto;
   border-radius: 20px;
@@ -83,12 +86,15 @@ input {
 
 
 button {
+  padding:1vw;
+  margin-left:30vw;
+  color:white;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 50px;
   width:auto;
   margin:2%;
-  color:white;
-  width:20%;
   background: #673ab7;
-  border-radius: 10px;
   cursor: pointer;
   transition: 0.5s;
 }

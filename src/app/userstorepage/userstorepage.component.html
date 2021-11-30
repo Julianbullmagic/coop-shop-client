@@ -15,7 +15,7 @@
 
 
   <button class="createstorebtn" (click)="toggle()">Create Listing?</button>
-  <div id="form" class="storeformcontainer" [@openClose]="isOpen ? 'closed' : 'open'">
+  <div id="form" class="storeformcontainer" [@openClose]="isOpen ? 'closed' : 'open'" [ngStyle]="{'height': uploading?'20vh':'auto'}">
    <h2 *ngIf="uploading">Uploading...</h2>
    <h2 *ngIf="!uploading">Create Listing</h2>
 
@@ -102,14 +102,14 @@
       <h4>{{ listing.title }}</h4>
       </div>
       <img class="searchresultsimage" src={{listing.images}} />
-      <p *ngIf="listing.price" class="viewerpriceuserpage">${{listing.price.toFixed(2)}} AUD or {{(listing.price/83).toFixed(2)}} hours</p>
+      <p *ngIf="listing.price" class="viewerpriceuserpage">${{listing.price}} AUD or {{(listing.price/83).toFixed(2)}} hours</p>
       <div class="btnbox">
       <button class="crudbtnone" *ngIf="!listing.deleting" (click)="deleteListing($event,listing.listingid)">Delete?</button>
       <button class="crudbtnthree" *ngIf="listing.deleting" (click)="areYouSure($event,listing.listingid)">Are You Sure?</button>
       <button class="crudbtnthree" *ngIf="listing.deleting" (click)="dontDelete($event,listing.listingid)">Don't delete</button>
       <button class="crudbtntwo" (click)="editListing(listing)">Edit?</button>
       <a class="viewstore" routerLink="/singlelisting/{{listing.listingid}}" routerLinkActive="active">
-      <button>View Listing?</button>
+      <button class="viewstorebtn">View Listing?</button>
    </a>
    </div>
   </div>

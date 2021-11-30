@@ -16,6 +16,7 @@ body {
 .container {
   position: relative;
   width: 60vw;
+  left:20vw;
   top:10vh;
   height: auto;
   border-radius: 20px;
@@ -92,12 +93,15 @@ input::placeholder {
 
 
 button {
-  width:auto;
-  width:20%;
+  padding:1vw;
+  margin-left:30vw;
   color:white;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 50px;
+  width:auto;
   margin:2%;
   background: #673ab7;
-  border-radius: 10px;
   cursor: pointer;
   transition: 0.5s;
 }

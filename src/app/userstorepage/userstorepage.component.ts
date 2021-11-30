@@ -103,6 +103,7 @@ export class UserstorepageComponent implements OnInit {
     this.stores$=this.fetchStore(this.storeid)
     this.stores$.subscribe(store=>{
       this.store=store[0]
+
       // if(store.status==401){
       //   localStorage.clear()
       // }
@@ -118,7 +119,7 @@ export class UserstorepageComponent implements OnInit {
       let itemcleaned=item.map(thing=>{
         let imagesarray=thing.images.split(',')
         console.log("imagesarray",imagesarray)
-        thing.images=imagesarray
+        thing.images=imagesarray[0]
         return thing
       })
       this.alllistings=itemcleaned
@@ -270,6 +271,7 @@ export class UserstorepageComponent implements OnInit {
       )
     }
 
+    this.isOpen=false
 
     this.uploading=false
     this.editingListing=false
@@ -282,7 +284,6 @@ export class UserstorepageComponent implements OnInit {
     this.listingModel.materials=''
     this.listingModel.condition=''
     this.listingModel.category=''
-
   }
 
   async uploadImg(img){

@@ -1,6 +1,7 @@
 .btnbox{
-  margin-top:3%;
-  width:100%;
+  margin-top:10%;
+  display:flex;
+  width:95%;
   height:100%;
 }
 
@@ -15,28 +16,23 @@
 }
 
 .crudbtnone{
-  display:inline;
   height:18%;
   width:27%;
   color:white;
 }
 
 .crudbtnthree{
-  display:inline;
   height:18%;
   width:45%;
   color:white;
 }
 .crudbtntwo{
-  display:inline;
   height:18%;
   width:20%;
   color:white;
 }
 
 .viewstore{
-  position:absolute;
-  display:block;
   height:15%;
   left:1%;
   width:50%;
