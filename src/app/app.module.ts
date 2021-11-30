@@ -18,12 +18,13 @@ import { MystoresComponent } from './mystores/mystores.component';
 import { UserstorepageComponent } from './userstorepage/userstorepage.component'
 import { SinglelistingComponent } from './singlelisting/singlelisting.component';
 import { SinglestoreComponent } from './singlestore/singlestore.component';
-
+import { AuthGuard } from "./services/auth-guard.service";
+import { AuthInterceptorService } from "./services/auth-interceptor.service";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },
-  { path: 'about', component:  AboutComponent},
+  { path: 'about', component:  AboutComponent,  canActivate: [AuthGuard]  },
   { path: 'home/search/:searchTerm/:storeOrListing', component:HomepageComponent},
   { path: 'home/categorysearch/:category', component: HomepageComponent },
   { path: 'home/categorysearch/:category/:searchTerm/:storeOrListing', component:HomepageComponent},
@@ -34,8 +35,8 @@ const routes: Routes = [
   { path: 'singlestore/:id', component:  SinglestoreComponent },
   { path: 'registration', component:RegistrationComponent},
   { path: 'login', component:LoginComponent},
-  { path: 'mystores', component:MystoresComponent},
-  { path: 'userstorepage/:storeid', component:UserstorepageComponent }
+  { path: 'mystores', component:MystoresComponent,  canActivate: [AuthGuard]  },
+  { path: 'userstorepage/:storeid', component:UserstorepageComponent,  canActivate: [AuthGuard]  }
 ];
 
 
@@ -54,7 +55,11 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
     exports: [RouterModule],
-  providers: [],
+    providers: [{
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptorService,
+        multi: true,
+      }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
