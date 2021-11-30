@@ -1,20 +1,25 @@
 a {
   color: white;
   text-decoration: none;
+  font-size:140%;
 }
 
 .navbar{
-  background-color:purple;
+  background-color:#aa98a9;
+  display:flex;
+  align-items:center;
+  width:100vw;
+  height:6vh;
+  padding:1vw;
 }
 
-div{
-  margin-left:4vw;
+
+
+h1{
+margin-left:4vw;
+color:white
 }
 
-.title{
-  font-size: 120%;
-
-}
 .goto{
   font-size: 80%;
   margin-left:2vw;
