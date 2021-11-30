@@ -1,0 +1,21 @@
+
+<app-search></app-search>
+<div class="categories">
+<span><strong>Categories</strong></span>
+<span>
+<button (click)="toggleallcategories()"><strong>See All Categories</strong></button>
+</span>
+<span><a routerLink="/home">
+<button>Any</button>
+</a></span>
+<span  *ngFor="let category of categories">
+
+  <a routerLink="/home/categorysearch/{{category.category}}">
+  <button>{{category.category}}</button>
+  </a>
+</span>
+</div>
+<app-searchresults *ngIf="!view"></app-searchresults>
+<app-storeviewer *ngIf="view"></app-storeviewer>
+<app-listingviewer *ngIf="view"></app-listingviewer>
+<h3>If you find any bugs or errors please email Julianbullmagic@gmail.com with a description detailed enough to replicate the problem</h3>

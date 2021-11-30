@@ -1,0 +1,117 @@
+<div class="searchresultsstore">
+  <div class="singlestore">
+      <div class="col1">
+      <h1><strong>{{ store.name }}</strong>  {{ store.title }}</h1>
+      <h4 *ngIf="store.description">{{store.description}}</h4>
+      <h4 *ngIf="store.phone">Phone: {{store.phone}}</h4>
+      <h4 *ngIf="store.email">Email: {{store.email}}</h4>
+
+      </div>
+      <div class="col2">
+      <img *ngIf="store.icon||store.image" class="storeimage" src={{store.icon||store.image}}/>
+      </div>
+      </div>
+
+
+
+  <button class="createstorebtn" (click)="toggle()">Create Listing?</button>
+  <div id="form" class="storeformcontainer" [@openClose]="isOpen ? 'closed' : 'open'">
+   <h2 *ngIf="uploading">Uploading...</h2>
+   <h2 *ngIf="!uploading">Create Listing</h2>
+
+   <form *ngIf="!uploading" #listingForm="ngForm" (ngSubmit)="onSubmit()"  novalidate>
+     <div>
+       <label>Title</label>
+       <input type="text" #title="ngModel" name="title" [(ngModel)]="listingModel.title">
+     </div>
+
+     <div>
+       <label>Description</label>
+       <input type="text" #description="ngModel"  name="description" [(ngModel)]="listingModel.description">
+     </div>
+
+     <div>
+       <label>Price</label>
+       <input type="number" #price="ngModel" name="price" [(ngModel)]="listingModel.price">
+     </div>
+
+     <div>
+       <label>Tags</label>
+       <input type="text" #tags="ngModel"  name="tags" [(ngModel)]="listingModel.tags">
+     </div>
+
+     <div>
+       <label>Materials</label>
+       <input type="text" #materials="ngModel" name="materials" [(ngModel)]="listingModel.materials">
+     </div>
+
+     <div>
+       <label>Condition</label>
+       <select #condition="ngModel" name="condition" [(ngModel)]="listingModel.condition">
+         <option value="brand new">brand new</option>
+         <option value="like new">like new</option>
+         <option value="good">good</option>
+         <option value="acceptable">acceptable</option>
+         <option value="used">used</option>
+         <option value="broken, for parts">broken, for parts</option>
+       </select>
+     </div>
+
+     <div>
+       <label>Category</label>
+       <select *ngIf="!newCat" #category="ngModel" name="category" [(ngModel)]="listingModel.category">
+         <option *ngFor="let cat of categories" value="{{cat}}">{{cat}}</option>
+       </select>
+
+       <input *ngIf="newCat" type="text" #category="ngModel"  name="category" [(ngModel)]="listingModel.category">
+       <button class="categorybtn" *ngIf='!newCat' (click)="newCategory()">New Category?</button>
+       <p *ngIf='newCat' >Type a new category above</p>
+       <button class="categorybtn" *ngIf='newCat' (click)="newCategory()">Use Existing Category?</button>
+     </div>
+
+     <div>
+       <label>Images</label>
+       <input type="file" (change)="onFileSelectedOne($event)"/>
+     </div>
+     <div>
+       <input type="file" (change)="onFileSelectedTwo($event)"/>
+     </div>
+     <div>
+       <input type="file" (change)="onFileSelectedThree($event)"/>
+     </div>
+     <div>
+       <input type="file" (change)="onFileSelectedFour($event)"/>
+     </div>
+     <div>
+       <input type="file" (change)="onFileSelectedFive($event)"/>
+     </div>
+     <button class="createstorebtn" *ngIf='!editingListing' type="submit">Submit form</button>
+     <button class="createstorebtn" *ngIf='editingListing' type="submit">Edit this listing?</button>
+     <button class="createstorebtn" *ngIf='editingListing' (click)="stopEditing()">Clear Form, Stop Editing?</button>
+   </form>
+ </div>
+
+<div [ngStyle]="{'width':'100%'}">
+ <input [ngStyle]="{'display': 'inline-block','width':'75%'}" type="text" #searchterm="ngModel"  name="searchterm" [(ngModel)]="listingModel.searchterm" />
+ <button [ngStyle]="{'display': 'inline-block'}" class="searchbtn" (click)="search($event)">Search Listings?</button>
+</div>
+  <div class="searchresultscontainerstore">
+  <div  class="usersearchresultsitem" *ngFor="let listing of listings">
+
+      <div class="textwrapper">
+      <h4>{{ listing.title }}</h4>
+      </div>
+      <img class="searchresultsimage" src={{listing.images}} />
+      <p *ngIf="listing.price" class="viewerpriceuserpage">${{listing.price.toFixed(2)}} AUD or {{(listing.price/83).toFixed(2)}} hours</p>
+      <div class="btnbox">
+      <button class="crudbtnone" *ngIf="!listing.deleting" (click)="deleteListing($event,listing.listingid)">Delete?</button>
+      <button class="crudbtnthree" *ngIf="listing.deleting" (click)="areYouSure($event,listing.listingid)">Are You Sure?</button>
+      <button class="crudbtnthree" *ngIf="listing.deleting" (click)="dontDelete($event,listing.listingid)">Don't delete</button>
+      <button class="crudbtntwo" (click)="editListing(listing)">Edit?</button>
+      <a class="viewstore" routerLink="/singlelisting/{{listing.listingid}}" routerLinkActive="active">
+      <button>View Listing?</button>
+   </a>
+   </div>
+  </div>
+</div>
+</div>

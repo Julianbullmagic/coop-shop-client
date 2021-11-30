@@ -1,0 +1,16 @@
+
+<div class="viewer">
+  <h2>Stores</h2>
+<div class="viewercontainer">
+  <div  class="vieweritem" *ngFor="let store of stores">
+    <a routerLink="/singlestore/{{store.storeid}}" routerLinkActive="active">
+      <div  class="viewertextwrapper">
+      <h4>{{ store.title }} {{ store.name }}</h4>
+      </div>
+      <div class="imagecontainer">
+      <img class="viewerimage" src={{store.image||store.icon}}/>
+      </div>
+      </a>
+  </div>
+</div>
+</div>

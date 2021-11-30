@@ -1,0 +1,15 @@
+
+<div class="viewer">
+  <h2>Listings</h2>
+<div class="viewercontainer">
+  <div  class="vieweritem" *ngFor="let listing of listings">
+    <a routerLink="/singlelisting/{{listing.listingid}}" routerLinkActive="active">
+      <div class="viewertextwrapper">
+      <h4>{{ listing.title }}</h4>
+      </div>
+      <img class="viewerimage" src={{listing.images}} />
+      <p *ngIf="listing.price" class="viewerprice">{{listing.price}} AUD or {{(listing.price/83).toFixed(2)}} hours</p>
+   </a>
+  </div>
+</div>
+</div>

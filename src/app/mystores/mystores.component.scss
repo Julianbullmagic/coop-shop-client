@@ -1,0 +1,182 @@
+.btnbox{
+  margin-top:3%;
+  width:100%;
+  height:100%;
+}
+
+.createlistingbtn{
+  width:40%;
+  padding:1vw;
+  margin-left:30vw;
+  color:white;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 50px;
+}
+
+.crudbtnone{
+  display:inline;
+  height:18%;
+  width:27%;
+  color:white;
+}
+
+.crudbtnthree{
+  display:inline;
+  height:18%;
+  width:45%;
+  color:white;
+}
+.crudbtntwo{
+  display:inline;
+  height:18%;
+  width:20%;
+  color:white;
+}
+
+.viewstore{
+  position:absolute;
+  display:block;
+  height:15%;
+  left:1%;
+  width:50%;
+  color:white;
+  text-decoration:none;
+}
+
+#viewstore{
+  color:white;
+}
+
+#viewstore:hover{
+  color:black;
+}
+
+button {
+  width:auto;
+  margin:2%;
+  background: #673ab7;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+  background:#CBC3E3;
+  color:black;
+}
+
+
+.storeformcontainer {
+  margin-left:15vw;
+  width: 60vw;
+  height: auto;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  margin-bottom:20vh;
+}
+
+.searchresultsstore{
+  height:400vh;
+  width:90vw;
+  margin-left:5vw;
+  margin-top:5vh;
+  overflow:hidden;
+}
+
+.searchresultscontainerstore{
+  height:auto;
+  max-height:70vh;
+  overflow-y:scroll;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+
+
+.container {
+  position: relative;
+  width: 60%;
+  height: auto;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.brand-logo {
+  height: 100px;
+  width: 100px;
+  background: url("https://img.icons8.com/color/100/000000/twitter--v2.png");
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.brand-title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #1DA1F2;
+  letter-spacing: 1px;
+}
+
+.inputs {
+  text-align: left;
+  margin-top: 30px;
+}
+
+label, input, button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+label {
+  margin-bottom: 4px;
+}
+
+label:nth-of-type(2) {
+  margin-top: 12px;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+select{
+  width:100%;
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

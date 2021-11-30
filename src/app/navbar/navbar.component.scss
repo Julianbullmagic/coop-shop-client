@@ -1,0 +1,33 @@
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar{
+  background-color:purple;
+}
+
+div{
+  margin-left:4vw;
+}
+
+.title{
+  font-size: 120%;
+
+}
+.goto{
+  font-size: 80%;
+  margin-left:2vw;
+}
+
+@media only screen and (max-width: 361px) {
+  .title{
+    font-size: 60%;
+
+  }
+  .goto{
+    font-size: 40%;
+    margin-left:2vw;
+  }
+
+}

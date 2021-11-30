@@ -1,0 +1,51 @@
+<app-search storepage=true></app-search>
+<div class="storedetails">
+
+    <div class="cols">
+    <div class="col1">
+    <h1><strong>{{ store.name }}</strong>{{ store.title }}</h1>
+    <button (click)="toggledetails()">View Store Details?</button>
+    </div>
+    <div class="col2">
+    <img *ngIf="(store.icon||store.image)&&!viewdesc" class="storeimage" src={{store.icon||store.image}}/>
+    </div>
+    </div>
+    <h3 *ngIf="store.description&&!viewdesc">{{ store.description }}</h3>
+    </div>
+
+
+
+
+
+    <hr/>
+<app-searchresults storepage=true *ngIf="!view"></app-searchresults>
+
+
+      <div class="categories">
+      <span><strong>Categories</strong></span>
+      <button (click)="toggleallcategories()"><strong>See All Categories</strong></button>
+      <span><a routerLink="/singlestore/{{identity}}">
+          <button>Any</button>
+          </a></span>
+      <span  *ngFor="let category of categories">
+        <a routerLink="/singlestore/categorysearch/{{identity}}/{{category.category}}">
+        <button>{{category.category}}</button>
+        </a>
+      </span>
+      </div>
+      <hr/>
+
+      <div class="searchresults">
+      <div *ngIf="view" class="searchresultscontainer">
+      <div class="searchresultsitem" *ngFor="let listing of listings">
+      <a routerLink="/singlelisting/{{listing.listingid}}" routerLinkActive="active">
+      <div class="textwrapper">
+      <h4>{{ listing.title }}</h4>
+      </div>
+      <img class="searchresultsimage" src={{listing.images}} />
+      <p *ngIf="listing.price" class="viewerpricesinglestore">{{listing.price}} AUD or {{(listing.price/83).toFixed(2)}} hours</p>
+
+    </a>
+  </div>
+</div>
+</div>

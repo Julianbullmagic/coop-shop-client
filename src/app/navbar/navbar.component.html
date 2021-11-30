@@ -1,0 +1,10 @@
+<div class='navbar' color='primary'>
+  <div><span class='title'>Cooperative Marketplace</span>
+    <a routerLink="/home" routerLinkActive="active"><span class='goto'>    Home    </span></a>
+    <a routerLink="/about" routerLinkActive="active"> <span class='goto'>About    </span></a>
+    <a routerLink="/registration" routerLinkActive="active"> <span class='goto'>Register    </span></a>
+    <a routerLink="/login" routerLinkActive="active"><span class='goto'>Login</span></a>
+    <a routerLink="/mystores" routerLinkActive="active"><span class='goto'>My Stores</span></a>
+    <a (click)="logout()" routerLinkActive="active-link" routerLink="/login"><span class='goto'>Logout</span></a>
+  </div>
+</div>

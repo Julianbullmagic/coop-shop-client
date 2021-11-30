@@ -1,0 +1,79 @@
+<div class="searchresultsstore">
+  <h2>My Stores</h2>
+  <button class="createlistingbtn" (click)="toggle()">Create Store?</button>
+
+  <div id="form" class="storeformcontainer" [@openClose]="isOpen ? 'closed' : 'open'">
+  <h2 *ngIf="!uploading">Create Store</h2>
+  <h2 *ngIf="uploading">Uploading...</h2>
+
+    <form  #userForm="ngForm" *ngIf="!uploading" (ngSubmit)="onSubmit()" novalidate>
+
+      <div>
+        <label>Name</label>
+        <input type="text" #name="ngModel" name="name" [(ngModel)]="storeModel.name">
+      </div>
+
+      <div>
+        <label>Title</label>
+        <input type="text" #title="ngModel" name="title" [(ngModel)]="storeModel.title">
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="text" #description="ngModel"  name="email" [(ngModel)]="storeModel.email">
+      </div>
+
+      <div>
+        <label>Phone</label>
+        <input type="test" #description="ngModel"  name="phone" [(ngModel)]="storeModel.phone">
+      </div>
+
+      <div>
+        <label>Category</label>
+        <select *ngIf="!newCat" #category="ngModel" name="category" [(ngModel)]="storeModel.category">
+          <option *ngFor="let cat of categories" value="{{cat}}">{{cat}}</option>
+        </select>
+
+        <input *ngIf="newCat" type="text" #category="ngModel"  name="category" [(ngModel)]="storeModel.category">
+        <button class="createlistingbtn" *ngIf='!newCat' (click)="newCategory()">New Category?</button>
+        <p *ngIf='newCat' >Type a new category above</p>
+        <button class="createlistingbtn" *ngIf='newCat' (click)="newCategory()">Use Existing Category?</button>
+      </div>
+
+      <div>
+        <label>Image</label>
+        <input type="file" (change)="onFileSelectedImage($event)"/>
+      </div>
+      <div>
+        <label>Icon</label>
+        <input type="file" (change)="onFileSelectedIcon($event)"/>
+      </div>
+
+      <button class="createlistingbtn" *ngIf='!editingStore' type="submit">Submit form</button>
+      <button class="createlistingbtn" *ngIf='editingStore' type="submit">Edit this listing?</button>
+      <button class="createlistingbtn" *ngIf='editingStore' (click)="stopEditing()">Clear Form, Stop Editing?</button>
+
+    </form>
+  </div>
+
+  <div class="searchresultscontainerstore">
+<div  class="uservieweritem" *ngFor="let store of stores">
+    <div  class="viewertextwrapper">
+    <h4>{{ store.title }} {{ store.name }}</h4>
+    </div>
+    <div class="imagecontainer">
+      <img class="viewerimage" src="{{store.image||store.icon}}"/>
+      <div class="btnbox">
+      <button class="crudbtnone" *ngIf="!store.deleting" (click)="deleteStore($event,store.storeid)">Delete?</button>
+      <button class="crudbtnthree" *ngIf="store.deleting" (click)="areYouSure($event,store.storeid)">Are You Sure?</button>
+      <button class="crudbtnthree" *ngIf="store.deleting" (click)="dontDelete($event,store.storeid)">Don't delete</button>
+      <button class="crudbtntwo" (click)="editStore(store)">Edit?</button>
+
+      <a class="viewstore" routerLink="/userstorepage/{{store.storeid}}" routerLinkActive="active">
+  <button id="viewstore">View Store?</button>
+</a>
+    </div>
+    </div>
+</div>
+</div>
+</div>

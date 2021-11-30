@@ -1,0 +1,27 @@
+
+<div *ngIf="view" class="searchresults">
+  <h2>Search Results</h2>
+<div class="searchresultscontainer">
+  <div  class="searchresultsitem" *ngFor="let store of storespage">
+    <a routerLink="/singlestore/{{store.storeid}}" routerLinkActive="active">
+      <div class="textwrapper">
+      <h4>{{ store.name||store.title }}</h4>
+      </div>
+      <img class="searchresultsimage" src={{store.icon}}/>
+      </a>
+  </div>
+
+  <div  class="searchresultsitem" *ngFor="let listing of listingspage">
+    <a routerLink="/singlelisting/{{listing.listingid}}" routerLinkActive="active">
+
+      <div class="textwrapper">
+      <h4>{{ listing.title }}</h4>
+      </div>
+      <img class="searchresultsimage" src={{listing.images}} />
+      <p *ngIf="listing.price" class="viewerprice">{{listing.price.toFixed(2)}} AUD or {{(listing.price/83).toFixed(2)}} hours</p>
+</a>
+  </div>
+</div>
+<span>change page </span><button *ngFor="let number of pagesarray" (click)="changepage(number)">{{number}}</button>
+<hr/>
+</div>

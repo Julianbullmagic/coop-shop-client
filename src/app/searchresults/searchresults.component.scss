@@ -1,0 +1,38 @@
+
+
+a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+button {
+	background-color:#6699cc;
+  margin-left:5px;
+  margin-top:3px;
+	border-radius:5px;
+	border:1px solid #3973ac;
+	display:inline-block;
+	cursor:pointer;
+	color:purple;
+	font-family:Arial;
+	font-size:10px;
+	padding:5px;
+	text-shadow:0px 1px 0px #3973ac;
+}
+button:hover {
+	background-color:#9fbfdf;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+p{
+  top:12vh;
+}
+.textwrapper{
+  height:10vh;
+}
+.viewerprice{
+  top:10vh;
+}

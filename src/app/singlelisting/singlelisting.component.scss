@@ -1,0 +1,49 @@
+h3{
+  font-weight:bold;
+}
+
+h4{
+  font-weight:bold;
+}
+
+.listing{
+  margin:5vw;
+  padding:1vw;
+  border-radius:10px;
+  background-color:#b7c9e2;
+}
+
+.infocontainer{
+  display:flex;
+  background-color:#efefef;
+  margin:1vh;
+  border-radius:10px;
+}
+
+.columnone{
+width:60vw;
+margin:1vh;
+padding:1vh;
+}
+
+.columntwo{
+  width:30vw;
+  margin:1vh;
+  padding:1vh;
+  overflow-x:hidden;
+}
+
+@media only screen and (max-width: 361px) {
+.infocontainer{
+  flex-wrap: wrap;
+
+}
+
+.columnone{
+  width:90vw;
+}
+.columntwo{
+  width:90vw;
+}
+
+}

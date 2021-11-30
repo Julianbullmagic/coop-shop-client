@@ -1,0 +1,37 @@
+.about{
+  margin:5vw;
+}
+
+iframe{
+  width:50%;
+  height:60vh;
+}
+img{
+  width:50%;
+  height:60vh;
+}
+
+.refbutton{
+margin-bottom:2vh;
+text-align:left;
+display:block;
+border-radius:20px;
+max-width:85px;
+max-height:25px;
+transition: max-width 4s, max-height 4s;
+overflow:hidden;
+margin-left:1vw;
+margin-top:1vh;
+box-shadow: 2px 2px 10px	#191970;
+border-radius:10px;
+}
+
+
+.refbutton:hover{
+  max-width:10000px;
+  max-height:10000px;
+}
+
+.refspan{
+  display:block;
+}

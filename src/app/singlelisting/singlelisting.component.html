@@ -1,0 +1,24 @@
+
+  <div *ngFor="let listing of listings$ | async" >
+    <div class="listing">
+      <h3 *ngIf="listing.name">{{ listing.name }}</h3>
+      <h3 *ngIf="listing.title">{{ listing.title }}</h3>
+      <hr/>
+      <div class="infocontainer">
+      <div class="columnone">
+      <p *ngIf="listing.description">{{listing.description}}</p>
+      <h4 *ngIf="listing.price">Cost: {{listing.price}} AUD or {{(listing.price/83).toFixed(2)}} hours</h4>
+      </div>
+      <div class="columntwo">
+      <p *ngIf="listing.views">{{listing.views}} people have viewed this</p>
+      <p *ngIf="listing.used">condition: {{listing.used}}
+      <p *ngIf="listing.height">height: {{listing.height}}, length:  {{listing.length}}, width:  {{listing.width}}, weight:  {{listing.weight}}</p>
+      <p *ngIf='listing.materials'>material: {{listing.materials}}</p>
+      <p *ngIf="listing.numfavourers">{{listing.numfavourers}} people like this</p>
+      <p><a routerLink="/singlestore/{{listing.storeid}}" routerLinkActive="active">view store</a></p>
+      <h5 *ngIf="listing.url">Purchse this product <a href="{{listing.url}}">{{listing.url}}</a></h5>
+      <h5 *ngIf="!listing.url">To purchase, contact details are on the Store Page</h5>
+      </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="container">
+
+  <h2 *ngIf="!submitted">Registration Form</h2>
+  <h2 *ngIf="submitted">Thanks for Registering</h2>
+
+
+  <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+    <div >
+      <label>Name</label>
+      <input class="input" type="text" #name="ngModel" required  [class.is-invalid]="name.invalid && name.touched" name="name" [(ngModel)]="userModel.name">
+      <small  [class.d-none]="name.valid || name.untouched">Name is required</small>
+    </div>
+
+    <div >
+      <label>Email</label>
+      <input class="input" type="email" #email="ngModel"  name="email" [(ngModel)]="userModel.email">
+    </div>
+
+
+    <div >
+      <label>Phone</label>
+      <input class="input" type="tel" #phone="ngModel" required pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched" name="phone" [(ngModel)]="userModel.phone">
+      <!-- <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone number must be 10 digits</small> -->
+      <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+        <small *ngIf="phone.errors.required">Phone number is required</small>
+        <small *ngIf="phone.errors.pattern">Phone number must be 10 digits</small>
+      </div>
+    </div>
+
+    <div>
+      <label>Bio, give a brief description of yourself</label>
+      <input class="input" type="text" #bio="ngModel" required [class.is-invalid]="bio.invalid && bio.touched" name="bio" [(ngModel)]="userModel.bio">
+    </div>
+
+
+
+      <div>
+        <div >
+          <input class="check" #passiveincome="ngModel" type="checkbox" name="passiveincome" [(ngModel)]="userModel.passiveincome">
+          <label>
+            Do you receive any passive income in the form of rents, dividends, interest, royalties?
+          </label>
+        </div>
+        </div>
+
+        <div>
+          <div>
+            <input class="check" #politician="ngModel" type="checkbox" name="politician" [(ngModel)]="userModel.politician">
+            <label>
+              Have you ever been elected as a politician?
+            </label>
+          </div>
+          </div>
+
+          <div>
+            <div>
+              <input class="check" #exective="ngModel" type="checkbox" name="executive" [(ngModel)]="userModel.executive">
+              <label>
+                Have you ever been a corporate executive for a capitalist business?
+              </label>
+            </div>
+            </div>
+              <div>
+                <div>
+                  <input class="check" #labouraristocracy="ngModel" type="checkbox" name="lawyer" [(ngModel)]="userModel.lawyer">
+                  <label >
+                    Have you ever worked as a lawyer except as a public defender?
+                  </label>
+
+
+            </div>
+            </div>
+
+            <div>
+              <label>Password</label>
+              <input class="input" type="password" #password="ngModel"  name="password" [(ngModel)]="userModel.password">
+            </div>
+
+            <div>
+              <label>Confirm Password</label>
+              <input class="input" type="password" #confirmpassword="ngModel"  name="confirmpassword" [(ngModel)]="userModel.confirmpassword">
+            </div>
+    <button type="submit">Submit form</button>
+
+  </form>
+
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
