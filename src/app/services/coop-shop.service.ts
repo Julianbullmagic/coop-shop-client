@@ -15,7 +15,8 @@ export class CoopShopService {
 isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
 isCool$ = new BehaviorSubject<boolean>(false);
 // server="http://localhost:8080/"
-server="/"
+// server="/"
+server="https://cooperative-marketplace-api.herokuapp.com/"
 
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json" }),
