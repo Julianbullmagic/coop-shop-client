@@ -655,17 +655,7 @@ app.use(function(req,res,next){
 //
 // })()
 
-app.use('/listings', listingRoutes);
-app.use('/stores', storeRoutes);
-app.use('/register', registerRoutes);
-app.use('/login', loginRoutes);
 
-
-
-
-app.use(errorController.get404);
-
-app.use(errorController.get500);
 
 // Serve only the static files form the dist directory
 // app.use(express.static(__dirname + '/dist/angular9-heroku-app'));
