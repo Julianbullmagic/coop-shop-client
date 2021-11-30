@@ -45,7 +45,7 @@ export class UserstorepageComponent implements OnInit {
 
   constructor(private coopShopService: CoopShopService,public router:Router,private route: ActivatedRoute) { }
   isOpen = true;
-  public stores$: Observable<Store[]>;
+  public stores$: Observable<any[]>;
   public store
 
    toggle() {
@@ -219,7 +219,9 @@ export class UserstorepageComponent implements OnInit {
       this.listingModel.id=this.editingListingId
       console.log("editing Listing!!!")
       let model=JSON.parse(JSON.stringify(this.listingModel))
-      this.listings.push(model)
+      let listings=JSON.parse(JSON.stringify(this.listings))
+      listings.reverse().push(model).reverse();
+      this.listings=listings;
       await this.coopShopService.editListing(this.listingModel)
       .subscribe(
         response => {
@@ -245,7 +247,9 @@ export class UserstorepageComponent implements OnInit {
 
     if(!this.editingListing){
       let model=JSON.parse(JSON.stringify(this.listingModel))
-      this.listings.push(model)
+      let listings=JSON.parse(JSON.stringify(this.listings))
+      listings.reverse().push(model).reverse();
+      this.listings=listings;
       console.log("creating listing",model)
       await this.coopShopService.createListing(this.listingModel)
       .subscribe(

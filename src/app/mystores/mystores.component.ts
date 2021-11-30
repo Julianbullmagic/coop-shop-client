@@ -183,7 +183,10 @@ export class MystoresComponent implements OnInit {
                 this.storeModel.id=Number(this.editingStoreId)
                 console.log("editing Store!!!")
                 let model=JSON.parse(JSON.stringify(this.storeModel))
-                this.stores.push(model)
+                let stores=JSON.parse(JSON.stringify(this.stores))
+
+                stores.reverse().push(model).reverse()
+                this.stores=stores
                 await this.coopShopService.editStore(this.storeModel)
                 .subscribe(
                   response =>{
@@ -207,7 +210,9 @@ export class MystoresComponent implements OnInit {
 
               if(!this.editingStore){
                 let model=JSON.parse(JSON.stringify(this.storeModel))
-                this.stores.push(model)
+                let stores=JSON.parse(JSON.stringify(this.stores))
+                stores.reverse().push(model).reverse();
+                this.stores=stores;
                 await this.coopShopService.createStore(this.storeModel)
                 .subscribe(
                   response => {

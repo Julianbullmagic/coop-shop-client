@@ -150,7 +150,7 @@ searchListingsByShopCategory(search:string,storeid:number,category:string): Obse
       );
   }
 
-  fetchRandomTenListingsFromShop(id:number): Observable<Listing[]> {
+  fetchRandomTenListingsFromShop(id:number): Observable<any[]> {
     console.log("getting listings",id)
     return this.http
       .get<Listing[]>(this.server+`listings/randomtenlistingsfromshop/${id}`, { responseType: "json" })
@@ -163,7 +163,7 @@ searchListingsByShopCategory(search:string,storeid:number,category:string): Obse
   }
 
 
-    fetchRandomTenListingsFromShopByCategory(id:number,category:string): Observable<Listing[]> {
+    fetchRandomTenListingsFromShopByCategory(id:number,category:string): Observable<any[]> {
       console.log("getting listings from shop by category",id,category)
       return this.http
         .get<Listing[]>(this.server+`listings/randomtenlistingsfromshopbycategory/${id}/${category}`, { responseType: "json" })
