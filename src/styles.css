@@ -76,7 +76,7 @@ height:21.7vh;
   top:1vh;
   left:1vh;
   width:23vw;
-  min-height:6.5vh;
+  height:6.5vh;
 }
 
 .viewerprice{
@@ -91,7 +91,6 @@ height:21.7vh;
   top:4vh;
   width:92%;
   height:15%;
-  bottom:0;
 }
 
 
