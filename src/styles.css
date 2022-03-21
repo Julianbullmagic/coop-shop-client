@@ -15,6 +15,7 @@ body{
   width:700vw;
   margin-left:5vw;
   margin-top:3vh;
+  overflow-y:hidden;
 }
 
 .viewercontainer{
@@ -22,7 +23,6 @@ body{
   width:90vw;
   display:flex;
   overflow-x:auto;
-  overflow-y:hidden;
 }
 
 .vieweritem{
@@ -77,7 +77,7 @@ height:21.7vh;
   top:1vh;
   left:1vh;
   width:23vw;
-  height:6.5vh;
+  height:6vh;
 }
 
 .viewerprice{
